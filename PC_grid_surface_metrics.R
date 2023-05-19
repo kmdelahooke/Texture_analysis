@@ -12,7 +12,7 @@ dems <- lapply(filepaths, terra::rast)
 
 ##create Texture images
 
-create_texture_image <- function(dem){
+create_texture_image <- function(dem, filename){
   
   dem <- raster::raster(dem)
   
@@ -37,19 +37,18 @@ create_texture_image <- function(dem){
 
   outrasts <- stack(unlist(outrasts))
   
-  outrasts <- stack(unlist(outrasts))
   data <- data.frame(x = coordinates(outrasts)[, 1], 
                          y = coordinates(outrasts)[, 2])
   
   for (i in 1:25) {
-    data[, i + 2] <- outputs[[i]][]
+    data[, i + 2] <- outrasts[[i]][]
   }
   names(data) <- c('x', 'y', 'Sa', 'Sq', 'S10z', 'Sdq', 'Sdq6', 'Sdr', 'Sbi',
                        'Sci', 'Ssk', 'Sku', 'Sds', 'Sfd', 'Srw', 'Srwi', 'Shw',
                        'Std', 'Stdi', 'Svi', 'Ssc', 'Sv', 
                        'Sp', 'Sk', 'Smean', 'Spk', 'Svk')
   
-  write.csv(data, "D:/grid_tex_images/dem.csv", append = TRUE)
+  write.csv(data, paste0("D:/grid_tex_images/", filename, ".csv"))
   print("Finished one square!")
   
 
@@ -57,5 +56,10 @@ create_texture_image <- function(dem){
   
 }
 
-tex_images<- lapply(dems, create_texture_image)
+
+filenames <- gsub(".tif", "", filelist)
+
+tex_images<- mapply(create_texture_image, dems, filenames)
+
+
 
