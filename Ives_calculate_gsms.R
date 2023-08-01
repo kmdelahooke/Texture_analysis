@@ -30,7 +30,7 @@ maskfps <- unlist(lapply("D:/ives_masks/", paste0, maskfiles))
 
 get_masks <- function(filepaths){
   m <- terra::rast(filepaths)
-  mc <- classify(m, cbind(-Inf, 100, NA))
+  mc <- classify(m, cbind(-Inf, 256, NA))
   mc <- mc[[1]]
   return(mc)
 }
