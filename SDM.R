@@ -12,7 +12,7 @@ library(ecospat)
 # (1) Read in and prepare data
 #------------------------------------------------------------------------------------
 
-# Create a Raster stack of first 3 principle components from texture_ordination.R
+# Create a Raster stack of first 3 principle components from TI_post_processing.R
 pc_rasts <- lapply(pc_rasts, raster)
 tex <- raster::stack(pc_rasts[1:3])
 
