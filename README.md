@@ -1,6 +1,6 @@
 **This repository contains the code needed to reproduce the analyses of:**
 
-<em>Delahooke, K. M., Liu, A.G, Stephenson, N. P., Kenchington, C.G., and Mitchell, E.G, 2024. Quantification of MISS to untangle early animal - matground interactions (in prep).</em>
+<em>Delahooke, K. M., Liu, A.G, Stephenson, N. P., Kenchington, C.G., and Mitchell, E.G, 2024. Quantification of MISS to untangle early animal - matground interactions (in prep/unpublished thesis chapter).</em>
 
 PART 1: Spatial analysis of texture images of the entire surface MISS topography map, in combination with fossil location data
 PART 2: Classification of topography maps of Ivesheadiomorphs using Persistent Homology and Surface Metrology
